@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Search city{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-offset-4 is-4">
+                <form method="POST" id="city-form">
+                    {% csrf_token %}
+                    <div class="field has-addons">
+                        <div class="control is-expanded">
+                            {{ form.name }}
+                        </div>
+                        <div class="control">
+                            <button type="submit" class="button is-info">
+                                Add City
+                            </button>
+                        </div>
+                    </div>
+                    <div id="city-weather"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf_token" content="{{csrf_token}}" id="csrf_token">
+    <title>Weather - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.0/css/bulma.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/css/datepicker.min.css"/>
+    <link rel="shortcut icon" href="{% static 'img/sun.png' %}" type="image/x-icon">
+</head>
+
+<body>
+<section class="hero is-primary">
+    <div class="hero-body">
+        <div class="container">
+            <h1 class="title">
+                Mini weather portal
+                <nav class="my-2 my-md-0 mr-md-3">
+                    <a class="p-2 text-dark" href="/">Wether</a>
+                    <a class="p-2 text-dark" href="cities">Existing</a>
+                </nav>
+            </h1>
+        </div>
+    </div>
+</section>
+
+{% block content %}{% endblock %}
+
+<footer class="footer">
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/air-datepicker/2.2.3/js/datepicker.min.js"></script>
+<script src="{% static 'js/app.js' %}"></script>
+</body>
+
+</html>

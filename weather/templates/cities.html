@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}Cities list{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container ">
+        <div class="columns ">
+            <form action="" method="GET" class="field has-addons">
+                <div class="control">
+                    <input class="input" autocomplete="off" value="{{ date_from }}" type="text" name="date_from"
+                           id="date_from" placeholder="Date from">
+                </div>
+                <div class="control">
+                    <input class="input" autocomplete="off" value="{{ date_to }}" type="text" name="date_to"
+                           id="date_to" placeholder="Date to">
+                </div>
+                <div class="control">
+                    <button class="button is-info" type="submit">
+                        Search
+                    </button>
+                </div>
+            </form>
+            <div class="column is-offset-4 is-4" id="cities-list">
+                {% for city in object_list %}
+                <div class="box">
+                    <article class="media">
+                        <div class="media-left">
+                            <figure class="image is-50x50">
+                                <img src="http://openweathermap.org/img/w/{{ city.icon }}.png" alt="Image">
+                            </figure>
+                        </div>
+                        <div class="media-content">
+                            <div class="content">
+                                <p>
+                                    <span class="title">{{ city.name }}</span>
+                                    <br>
+                                    <span class="subtitle">{{ city.temperature }} °C</span>
+                                    <br> {{ city.description }}
+                                </p>
+                            </div>
+                        </div>
+                        <div class="media-right">
+                            <a href="#" class="js-delete-city" data-id="{{ city.id }}">
+                                <button class="delete"></button>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+                {% empty %}
+                <li>No cities found.</li>
+                {% endfor %}
+            </div>
+            {% if is_paginated %}
+            <nav aria-label="Page navigation conatiner"></nav>
+            <ul class="pagination justify-content-center">
+                {% if page_obj.has_previous %}
+                <li><a href="?page={{ page_obj.previous_page_number }}{{ filter }}" class="page-link">&laquo; PREV </a>
+                </li>
+                {% endif %}
+                {% if page_obj.has_next %}
+                <li><a href="?page={{ page_obj.next_page_number }}{{ filter }}" class="page-link"> NEXT &raquo;</a></li>
+                {% endif %}
+            </ul>
+            </nav>
+        </div>
+        {% endif %}
+    </div>
+    </div>
+</section>
+{% endblock %}
