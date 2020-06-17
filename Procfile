@@ -1,0 +1,1 @@
+web: gunicorn Mini-Weather-Portal.wsgi --log-file -
