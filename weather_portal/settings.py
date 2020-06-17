@@ -138,7 +138,7 @@ prod_db  =  dj_database_url.config(conn_max_age=500)
 DATABASES['default'].update(prod_db)
 
 #STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT, 'static'),
+    os.path.join(PROJECT_DIR, 'static'),
 )
 
 #  Add configuration for static files storage using whitenoise
