@@ -107,7 +107,7 @@ class CityListView(ListView):
 
         context['filter'] = filter
         context['date_from'] = date_from
-        context['date_to'] = date_from
+        context['date_to'] = date_to
 
         return context
 
